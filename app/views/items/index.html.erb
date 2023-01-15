@@ -40,11 +40,11 @@
     const list = document.getElementById('list')
 const inputField=document.getElementById('input-field')
 inputField.addEventListener('keyup',() => {
-fetch(`http://127.0.0.1:3000/item/${inputField.value}`)
+fetch(`https://search-engine-fa7t.onrender.com/item/${inputField.value}`)
 .then(res=>res.json()).then(result => {
     list.innerHTML = ''
     result.search.map(item=>{
-        let food = `<li class="list-item"><b>${item.name}</b>${item.description}</li>`
+        let food = `<li class="list-item"><b>${item.name+":_"}</b>${item.description}</li>`
         list.innerHTML += food
     })
 } )
