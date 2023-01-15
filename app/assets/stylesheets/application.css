@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require_'records'
+ *= require_'header'
+ */
+
+ .search-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+
+  }
+
+  .engine-section {
+    width: 70%;
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .search-results {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+ .list-item {
+  display: flex;
+  text-align: left;
+  padding: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-bottom:solid 1px rgb(156, 153, 153);
+  }
+
+  .field-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field-login {
+    background-color: red;
+  }

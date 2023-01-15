@@ -1,0 +1,52 @@
+<header class="header">
+<p class="logo">Search Engine</p>
+<nav>
+<ul>
+<li class="record"><a href="/items/new">Add new Food</a></li>
+<li class="record-logout"><%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'logout' %></li>
+</ul>
+</nav>
+</header>
+
+<div class="search-container">
+  <div class="most-searched-container">
+    <h2 class="record-title">Most searched:</h2>
+    <ul class="record-list">
+      <% @records.each do |item| %>
+        <li class="record-item">
+          <%= item.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="engine-section">
+  <form method="get" id="my_form">
+    <input type="text" name="q" id="input-field" placeholder="Search for food..." >
+    <button type="submit" class="search-button">Search</button>
+  </form>
+  <div class="search-results">
+    <h2>Search Results:</h2>
+    <ul id="list" class="list">
+      <% @items.each do |item| %>
+        <li class="list-item">
+          <b><%= item.name+":_" %></b> <%= item.description %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</div>
+<%= javascript_tag do %>
+    const list = document.getElementById('list')
+const inputField=document.getElementById('input-field')
+inputField.addEventListener('keyup',() => {
+fetch(`http://127.0.0.1:3000/item/${inputField.value}`)
+.then(res=>res.json()).then(result => {
+    list.innerHTML = ''
+    result.search.map(item=>{
+        let food = `<li class="list-item"><b>${item.name}</b>${item.description}</li>`
+        list.innerHTML += food
+    })
+} )
+})
+<% end %>
